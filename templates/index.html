@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Heart Disease</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="resting_bp" placeholder="Resting BP" required="required" />
+		<input type="text" name="cholesterol" placeholder="Cholesterol" required="required" />
+        <input type="text" name="fasting_bs" placeholder="FastingBS" required="required" />
+        <input type="text" name="max_hr" placeholder="MaxHR" required="required" />
+        <input type="text" name="old_peak" placeholder="Oldpeak" required="required" />
+        <input type="text" name="sex" placeholder="Sex" required="required" />
+        <input type="text" name="chest_pain_type_value" placeholder="ChestPainType" required="required" />
+        <input type="text" name="resting_ecg_value" placeholder="RestingECG" required="required" />
+        <input type="text" name="exercise_angina_value" placeholder="ExerciseAngina" required="required" />
+        <input type="text" name="st_slope_value" placeholder="ST Slope" required="required" />
+
+        
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
